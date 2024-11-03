@@ -1,0 +1,59 @@
+<!-- <h1>Yeison Alexander</h1> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- <button (click)="obtenerTodos()">obtener todo</button> -->
+  <div class="container-md mt-5">
+
+    <h1 id="titulo">LISTA DE USUARIOS</h1>
+
+    <div class="contenedor">
+      <button class="btn btn-primary" type="button" (click)="crearUsuario()">Crear usuario</button>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">UsuarioId</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Correo</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <ng-container *ngFor="let usuario of usuarios">
+          <tr *ngIf="usuario.estado == 'A'">
+            <td scope="row">{{ usuario.usuarioId }}</td>
+            <td scope="row">{{ usuario.nombre }}</td>
+            <td scope="row">{{ usuario.apellido }}</td>
+            <td scope="row">{{ usuario.correo }}</td>
+            <td scope="row">
+              <button class="btn btn-warning" (click)="actualizarUsuarios(usuario.usuarioId)">Editar</button>
+              |
+              <button class="btn btn-danger" (click)="eliminarUsuario(usuario.usuarioId)">Eliminar</button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</body>
+</html>
